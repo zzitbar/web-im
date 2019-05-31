@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css"
+          href="../static/js/bootstrap-3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/base.css"/>
+</head>
+<body>
+<div class="container-fluid" id="app">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">群聊列表</div>
+                <!-- List group -->
+                <ul class="list-group" id="groupList">
+                    <a class="list-group-item" href="javascript:void(0)" @click="joinGroup(group.groupId)" v-for="group in groups">{{group.name}} ({{group.cnt}})</a>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">{{currentGroup.name}} ({{currentGroup.cnt}})</div>
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+                        <li v-for="item in chatMsgs" v-if="item.userDto.userId=='${user.userId}'" class="msg-mine">
+                            <p>
+                                <span class="text-primary">{{ item.userDto.name }}</span>
+                                <span class=""></span>
+                                <img class="img-rounded" style="width: 32px; height: 32px;" :src="item.userDto.avatar">
+                            </p>
+                            <div class="msg-content">
+                                <span >{{ item.msg }}</span><b></b>
+                                <p><small><em class="text-muted">{{ item.createTime }}</em></small></p>
+                            </div>
+                        </li>
+                        <li v-for="item in chatMsgs" v-if="item.userDto.userId!='${user.userId}'" class="msg-other">
+                            <p><img class="img-rounded" style="width: 32px; height: 32px;" :src="item.userDto.avatar"><span class="text-primary">{{ item.userDto.name }}</span> </p>
+                            <div class="msg-content">
+                                <span >{{ item.msg }}</span><b></b>
+                                <p><small><em class="text-muted">{{ item.createTime }}</em></small></p>
+                            </div>
+                        </li>
+                        <li v-for="item in chatMsgs" class="msg-system">
+                            <p><span class="msg-content">{{ item.userDto.name }}</span> </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input type="text" class="form-control" v-model="message.msg">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" @click="chat"><i class="glyphicon glyphicon-send"></i></button>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+.msg-mine {
+    text-align: right;
+}
+.msg-other {
+    text-align: left;
+}
+.msg-system {
+    text-align: center;
+}
+.msg-content > span {
+    padding: 8px;
+    border-radius: 5px;
+    color: #FFF;
+
+}
+.msg-mine>.msg-content{
+    margin-right: 40px;
+}
+.msg-other>.msg-content{
+    margin-left: 40px;
+}
+.msg-mine>.msg-content > span {
+    background: #08ff2f;
+}
+.msg-other>.msg-content > span {
+    background: #508aca;
+}
+.msg-system > p > .msg-content {
+    padding: 5px;
+    border-radius: 5px;
+    color: #FFF;
+    background: #e3e3e3;
+}
+.msg-avator {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    display: inline-block;
+    border-radius: 100%;
+    color: #FFF;
+    font-weight: 600;
+    text-align: center;
+}

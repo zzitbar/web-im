@@ -1,0 +1,26 @@
+
+netty:
+    context-path: /websocket
+    port: 8090    #\u76D1\u542C\u7AEF\u53E3
+    bossThread: 2 #\u7EBF\u7A0B\u6570
+    workerThread: 2 #\u7EBF\u7A0B\u6570
+    keepalive: true #\u4FDD\u6301\u8FDE\u63A5
+    backlog: 100
+
+spring:
+    freemarker:
+        allow-request-override: false
+        cache: false
+        check-template-location: true
+        charset: UTF-8
+        content-type: text/html
+        expose-request-attributes: true
+        expose-session-attributes: true
+        expose-spring-macro-helpers: false
+        request-context-attribute: request
+        suffix: .ftl
+        settings:
+            number_format: #.##
+            template_update_delay: 0
+    #        settings.template_exception_handler: com.foxconn.ipebg.fixtureprogress.config.FreemarkerExceptionHandler
+    mvc.static-path-pattern: /static/**
